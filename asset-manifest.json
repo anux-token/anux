@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/anux/static/js/main.5abc866d.js",
+    "index.html": "/anux/index.html",
+    "main.5abc866d.js.map": "/anux/static/js/main.5abc866d.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.5abc866d.js"
+  ]
+}
