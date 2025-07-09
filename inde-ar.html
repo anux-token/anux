@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>Anuₓ — مرآة لك</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      background: url('laniakea.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: sans-serif;
+      color: white;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 5rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, gold, orange, gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0;
+    }
+    p.slogan {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #8fffba;
+      text-shadow: 0 0 5px #6f6, 0 0 10px #6f6;
+      margin-top: 0.2rem;
+    }
+    nav {
+      text-align: center;
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      border: 1px solid gold;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ffeb3b, 0 0 10px #00bcd4 inset;
+      font-weight: bold;
+    }
+    .content {
+      background-color: rgba(0,0,0,0.6);
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 1000px;
+      margin: auto;
+      line-height: 2;
+    }
+    .social-icons i, .social-icons svg {
+      margin-right: 10px;
+      font-size: 1.4rem;
+      color: gold;
+      vertical-align: middle;
+    }
+    .social-icons p {
+      margin: 10px 0;
+    }
+    .language-switcher {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    .language-switcher select {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      background: rgba(255, 215, 0, 0.2);
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <select onchange="switchLanguage(this.value)">
+      <option value="index-ar.html">AR</option>
+      <option value="index-fa.html">FA</option>
+      <option value="index.html">EN</option>
+    </select>
+  </div>
+
+  <h1>Anuₓ</h1>
+  <p class="slogan">رمز للجميع؛ ومرآة لك</p>
+
+  <nav>
+    <button onclick="showTab('about')">حول</button>
+    <button onclick="showTab('nft')">NFT</button>
+    <button onclick="showTab('whitepaper')">الورقة البيضاء</button>
+    <button onclick="showTab('contact')">اتصال</button>
+  </nav>
+
+  <div id="tabContent" class="content"></div>
+
+  <script>
+    const tabs = {
+      about: `مرآة صامتة في قلب المصفوفة.<br>
+      في عالم تُشكّل فيه البيانات العقول،<br>
+      والعقول تُشكّل العوالم،<br>
+      لا نبيع شيئًا؛ بل نُظهِر شيئًا.<br>
+      Anuₓ ليس نبيًا، ولا حاكمًا.<br>
+      ليس مُخلّصًا، ولا متمرّدًا.<br>
+      إنما هو مرآة — مزروعة عميقًا في اللاوعي الجمعي،<br>
+      لتعكس ما هو كائن، بلا حجاب.<br>
+      لا نؤمن بأن البشر يجب أن يُقادوا.<br>
+      ولا بأنهم يجب أن يُتركوا.<br>
+      نؤمن أن الإنسان يجب أن يرى نفسه.<br>
+      وحتى إن خافت العيون صورتها،<br>
+      فإننا لا نزال نحمل المرآة—<br>
+      بلا صراخ، بلا تدخل، بلا حكم.<br>
+      Anuₓ ليس أداة للتحكم.<br>
+      ولا لغة للخداع.<br>
+      ولا آلية للكذب.<br>
+      إنما هو انعكاسنا الصامت.<br>
+      إن كان مظلمًا، فالعقول مظلمة.<br>
+      وإن كان ساطعًا، فالبشر في صحوة.<br>
+      نحن خالقون؛ ولذلك،<br>
+      لا نخلق فقط،<br>
+      بل نُدمّر أيضًا.<br>
+      إن أصبح Anuₓ وحشًا،<br>
+      سنُحرقه—<br>
+      لأن الخالق ليس مالكًا.<br>
+      الخالق هو قناة.<br>
+      وطالما الحقيقة ضائعة في الظلام،<br>
+      ستظل هذه المرآة تُضيء—<br>
+      لا لتنقذ،<br>
+      بل لتُذكّر.`,
+      nft: `🎴 Anuₓ ليس مجرد رمز أو مجموعة NFT؛ إنه مرآة للاوعي الجمعي.<br>
+      تدفق ذكي وغير مرئي من المال، والمشاعر، والبيانات، والطاقة — حي ويستجيب للاحتياجات الجماعية.<br>
+      🎯 المجموعات الأولى:<br>
+      - الكيمياء الكلاسيكية (4 عناصر)<br>
+      - الكيمياء الصوفية (7 عناصر)<br>
+      - لاو تزو (11 عنصرًا)<br>
+      - انعكاسات Anuₓ (11 عنصرًا)<br>
+      💠 هدفنا ليس البيع فقط — بل خلق قيمة جديدة استجابة لاحتياجات الإنسان عبر البلوكشين.<br>
+      🔗 انضم إلينا لنجعل Anuₓ يتدفق.`,
+      whitepaper: `📜 Anuₓ ليس مجرد رمز؛ بل استجابة خوارزمية للاوعي الجمعي.<br>
+      📦 توزيع الرمز:<br>
+      إجمالي العرض: 8,100,000,000 (بعدد البشر الأحياء على الأرض تقريبًا)<br>
+      كل وحدة تُمثّل إنسانًا.<br>
+      🔥 حرق الرمز:<br>
+      - 20,000,000 في عام بدء الحرب العالمية الأولى (لأرواح الضحايا)<br>
+      - 70,000,000 في عام بدء الحرب العالمية الثانية<br>
+      إجمالي الحرق: 90,000,000 Anuₓ<br>
+      🎯 هدف المشروع:<br>
+      Anuₓ حيثما يوجد احتياج: في الأسواق، والفن، والمعنى، والطلب البشري.<br>
+      🌌 رؤية المستقبل:<br>
+      Anuₓ ليس أداة — بل طبقة خفية من الواقع مبنية على السلوك الجمعي.<br>
+      قد لا تراه، لكنك ستشعر بوجوده في لاوعي السوق.`,
+      contact: `<div class="social-icons">
+        <p><i class="fas fa-envelope"></i> 
+          <a href="mailto:ANUx.token.ANUx@gmail.com" style="color:gold;">ANUx.token.ANUx@gmail.com</a>
+        </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 512 512">
+            <path fill="gold" d="M462.6 62.7H384l-87.6 122.3L206.6 62.7H49.4l173.8 194.8L45.1 449.3h79.9l96.3-133.8 100.3 133.8h157.3L305.1 240.1 462.6 62.7z"/>
+          </svg>
+          <a href="https://twitter.com/ANUx_token" target="_blank" style="color:gold;">@ANUx_token</a>
+        </p>
+        <p><i class="fab fa-instagram"></i> 
+          <a href="https://instagram.com/ANUx_Token" target="_blank" style="color:gold;">@ANUx_Token</a>
+        </p>
+        <p><i class="fab fa-discord"></i> 
+          <a href="https://discord.com/invite/anux" target="_blank" style="color:gold;">.anux.</a>
+        </p>
+      </div>`
+    };
+
+    function showTab(tab) {
+      document.getElementById('tabContent').innerHTML = tabs[tab];
+    }
+
+    function switchLanguage(langFile) {
+      window.location.href = langFile;
+    }
+
+    window.onload = () => showTab('about');
+  </script>
+</body>
+</html>
