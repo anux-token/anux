@@ -1,1 +1,0 @@
-// Final JS placeholder for language switching
