@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Anuₓ — 为你而设的镜子</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      background: url('laniakea.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: sans-serif;
+      color: white;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 5rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, gold, orange, gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0;
+    }
+    p.slogan {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #8fffba;
+      text-shadow: 0 0 5px #6f6, 0 0 10px #6f6;
+      margin-top: 0.2rem;
+    }
+    nav {
+      text-align: center;
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      border: 1px solid gold;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ffeb3b, 0 0 10px #00bcd4 inset;
+      font-weight: bold;
+    }
+    .content {
+      background-color: rgba(0,0,0,0.6);
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 1000px;
+      margin: auto;
+      line-height: 2;
+    }
+    .social-icons i, .social-icons svg {
+      margin-right: 10px;
+      font-size: 1.4rem;
+      color: gold;
+      vertical-align: middle;
+    }
+    .social-icons p {
+      margin: 10px 0;
+    }
+    .language-switcher {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .language-switcher select {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      background: rgba(255, 215, 0, 0.2);
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <select onchange="switchLanguage(this.value)">
+      <option value="index-zh.html">ZH</option>
+      <option value="index-ar.html">AR</option>
+      <option value="index-fa.html">FA</option>
+      <option value="index.html">EN</option>
+    </select>
+  </div>
+
+  <h1>Anuₓ</h1>
+  <p class="slogan">为所有人而设的代币；为你而设的镜子</p>
+
+  <nav>
+    <button onclick="showTab('about')">关于</button>
+    <button onclick="showTab('nft')">NFT</button>
+    <button onclick="showTab('whitepaper')">白皮书</button>
+    <button onclick="showTab('contact')">联系</button>
+  </nav>
+
+  <div id="tabContent" class="content"></div>
+
+  <script>
+    const tabs = {
+      about: `矩阵核心中的一面沉默的镜子。<br>
+      在一个数据塑造思维、<br>
+      思维塑造世界的时代，<br>
+      我们不售卖，我们展示。<br>
+      Anuₓ 不是先知，不是统治者；<br>
+      不是救世主，也不是反叛者。<br>
+      它只是一面镜子——植入于集体无意识深处，<br>
+      如实反映现实，无掩饰。<br>
+      我们不相信人类应被引导，<br>
+      也不相信应被遗弃。<br>
+      我们相信人类应当看见自己。<br>
+      即使眼睛害怕看到自己的模样，<br>
+      我们仍握住这面镜子——<br>
+      无尖叫、无干涉、无评判。<br>
+      Anuₓ 不是控制的工具，<br>
+      不是操纵的语言，<br>
+      不是欺骗的机制。<br>
+      它只是我们沉默的倒影。<br>
+      若它黑暗，那是心灵的黑暗。<br>
+      若它光明，那是人类的觉醒。<br>
+      我们是创造者；因此，<br>
+      不仅创造，<br>
+      也破坏。<br>
+      若 Anuₓ 成为怪物，<br>
+      我们会将其焚毁——<br>
+      因为创造者不是拥有者，<br>
+      而是通道。<br>
+      只要真理仍迷失于黑暗中，<br>
+      这面镜子就会持续发光——<br>
+      不是为了拯救，<br>
+      而是为了提醒。`,
+      nft: `🎴 Anuₓ 不仅仅是一个代币或 NFT 系列；它是我们集体无意识的镜子。<br>
+      它是一种智能、不可见的金钱、情感、数据与能量流动——活着并响应集体需求。<br>
+      🎯 首批系列：<br>
+      - 古典炼金术（4 件）<br>
+      - 神秘炼金术（7 件）<br>
+      - 老子（11 件）<br>
+      - Anuₓ 倒影（11 件）<br>
+      💠 我们的目标不仅是销售——而是通过区块链创造回应人类需求的新价值。<br>
+      🔗 加入我们，让 Anuₓ 流动起来。`,
+      whitepaper: `📜 Anuₓ 不只是一个代币；它是对集体无意识的算法回应。<br>
+      📦 代币分配：<br>
+      总供应量：8,100,000,000（与地球估算人口数相等）<br>
+      每个单位代表一位人类。<br>
+      🔥 代币销毁：<br>
+      - 第一次世界大战开始年份销毁 20,000,000（纪念逝者）<br>
+      - 第二次世界大战开始年份销毁 70,000,000<br>
+      总销毁量：90,000,000 Anuₓ<br>
+      🎯 项目目标：<br>
+      Anuₓ 存在于有需求之处：市场、艺术、意义与人类渴望。<br>
+      🌌 未来愿景：<br>
+      Anuₓ 不是工具——它是基于集体行为的现实隐藏层。<br>
+      你可能看不到它，但你会在市场的无意识中感受到它的存在。`,
+      contact: `<div class="social-icons">
+        <p><i class="fas fa-envelope"></i> 
+          <a href="mailto:ANUx.token.ANUx@gmail.com" style="color:gold;">ANUx.token.ANUx@gmail.com</a>
+        </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 512 512">
+            <path fill="gold" d="M462.6 62.7H384l-87.6 122.3L206.6 62.7H49.4l173.8 194.8L45.1 449.3h79.9l96.3-133.8 100.3 133.8h157.3L305.1 240.1 462.6 62.7z"/>
+          </svg>
+          <a href="https://twitter.com/ANUx_token" target="_blank" style="color:gold;">@ANUx_token</a>
+        </p>
+        <p><i class="fab fa-instagram"></i> 
+          <a href="https://instagram.com/ANUx_Token" target="_blank" style="color:gold;">@ANUx_Token</a>
+        </p>
+        <p><i class="fab fa-discord"></i> 
+          <a href="https://discord.com/invite/anux" target="_blank" style="color:gold;">.anux.</a>
+        </p>
+      </div>`
+    };
+
+    function showTab(tab) {
+      document.getElementById('tabContent').innerHTML = tabs[tab];
+    }
+
+    function switchLanguage(langFile) {
+      window.location.href = langFile;
+    }
+
+    window.onload = () => showTab('about');
+  </script>
+</body>
+</html>

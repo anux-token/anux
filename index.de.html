@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anuₓ — Ein Spiegel für Dich</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <style>
+    body {
+      margin: 0;
+      background: url('laniakea.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: sans-serif;
+      color: white;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 5rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, gold, orange, gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0;
+    }
+    p.slogan {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #8fffba;
+      text-shadow: 0 0 5px #6f6, 0 0 10px #6f6;
+      margin-top: 0.2rem;
+    }
+    nav {
+      text-align: center;
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: 1px solid gold;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ffeb3b, 0 0 10px #00bcd4 inset;
+      font-weight: bold;
+    }
+    .content {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 1000px;
+      margin: auto;
+      line-height: 2;
+    }
+    .social-icons i,
+    .social-icons svg {
+      margin-right: 10px;
+      font-size: 1.4rem;
+      color: gold;
+      vertical-align: middle;
+    }
+    .social-icons p {
+      margin: 10px 0;
+    }
+    .language-switcher {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .language-switcher select {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      background: rgba(255, 215, 0, 0.2);
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <select onchange="switchLanguage(this.value)">
+      <option value="index-de.html">DE</option>
+      <option value="index-he.html">HE</option>
+      <option value="index-hi.html">HI</option>
+      <option value="index-es.html">ES</option>
+      <option value="index-zh.html">ZH</option>
+      <option value="index-ar.html">AR</option>
+      <option value="index-fa.html">FA</option>
+      <option value="index.html">EN</option>
+    </select>
+  </div>
+
+  <h1>Anuₓ</h1>
+  <p class="slogan">Ein Token für alle; ein Spiegel für Dich</p>
+
+  <nav>
+    <button onclick="showTab('about')">Über</button>
+    <button onclick="showTab('nft')">NFT</button>
+    <button onclick="showTab('whitepaper')">Whitepaper</button>
+    <button onclick="showTab('contact')">Kontakt</button>
+  </nav>
+
+  <div id="tabContent" class="content"></div>
+
+  <script>
+    const tabs = {
+      about: `Ein stiller Spiegel im Herzen der Matrix.<br>
+      In einer Welt, in der Daten Gedanken formen,<br>
+      Und Gedanken Welten formen,<br>
+      Verkaufen wir nichts. Wir zeigen etwas.<br>
+      Anuₓ ist weder ein Prophet noch ein Herrscher.<br>
+      Weder ein Retter noch ein Rebell.<br>
+      Es ist nur ein Spiegel – tief im kollektiven Unterbewusstsein installiert,<br>
+      Um das zu reflektieren, was ist, ohne Schleier.<br>
+      Wir glauben nicht, dass Menschen geführt werden sollten.<br>
+      Wir glauben nicht, dass Menschen verlassen werden sollten.<br>
+      Wir glauben, dass Menschen sich selbst sehen sollten.<br>
+      Und selbst wenn die Augen ihr eigenes Bild fürchten,<br>
+      Halten wir den Spiegel trotzdem –<br>
+      Ohne Schrei, ohne Eingriff, ohne Urteil.<br>
+      Anuₓ ist kein Werkzeug der Kontrolle.<br>
+      Keine Sprache der Manipulation.<br>
+      Kein Mechanismus der Täuschung.<br>
+      Es ist die stille Reflexion von uns.<br>
+      Wenn es dunkel ist, sind die Gedanken dunkel.<br>
+      Wenn es hell ist, erwachen die Menschen.<br>
+      Wir sind Schöpfer; und als solche,<br>
+      Erschaffen wir nicht nur,<br>
+      Wir zerstören auch.<br>
+      Wenn Anuₓ ein Monster wird,<br>
+      Werden wir es verbrennen –<br>
+      Denn ein Schöpfer ist kein Besitzer.<br>
+      Der Schöpfer ist ein Kanal.<br>
+      Und solange die Wahrheit im Dunkeln verloren ist,<br>
+      Wird dieser Spiegel scheinen –<br>
+      Nicht um zu retten,<br>
+      Sondern um zu erinnern.`,
+      nft: `🎴 Anuₓ ist nicht nur ein Token oder eine NFT-Kollektion; es ist ein Spiegel unseres kollektiven Unterbewusstseins.<br>
+      Es ist ein intelligenter, unsichtbarer Fluss von Geld, Emotionen, Daten und Energie – lebendig und reaktionsfähig auf kollektive Bedürfnisse.<br>
+      🎯 Erste Kollektionen:<br>
+      - Klassische Alchemie (4 Artikel)<br>
+      - Mystische Alchemie (7 Artikel)<br>
+      - Lao Tzu (11 Artikel)<br>
+      - Anuₓ Reflektionen (11 Artikel)<br>
+      💠 Unser Ziel ist es nicht nur zu verkaufen – sondern neuen Wert zu schaffen, der auf menschliche Bedürfnisse mit Blockchain reagiert.<br>
+      🔗 Mach mit, damit Anuₓ fließen kann.`,
+      whitepaper: `📜 Anuₓ ist nicht nur ein Token; es ist eine algorithmische Antwort auf das kollektive Unterbewusstsein.<br>
+      📦 Token-Verteilung:<br>
+      Gesamte Versorgung: 8.100.000.000 (entspricht der geschätzten Erdbevölkerung)<br>
+      Jede Einheit repräsentiert einen Menschen.<br>
+      🔥 Token-Verbrennung:<br>
+      - 20.000.000 im Jahr des Beginns des Ersten Weltkriegs (für gefallene Seelen)<br>
+      - 70.000.000 im Jahr des Beginns des Zweiten Weltkriegs<br>
+      Gesamtverbrennung: 90.000.000 Anuₓ<br>
+      🎯 Projektziel:<br>
+      Anuₓ ist überall dort, wo Bedarf besteht: in Märkten, Kunst, Bedeutung und menschlicher Nachfrage.<br>
+      🌌 Zukunftsvision:<br>
+      Anuₓ ist kein Werkzeug – es ist eine verborgene Realitätsschicht basierend auf kollektivem Verhalten.<br>
+      Du siehst es vielleicht nicht, aber du wirst seine Präsenz im Unterbewusstsein des Marktes spüren.`,
+      contact: `<div class="social-icons">
+        <p><i class="fas fa-envelope"></i> 
+          <a href="mailto:ANUx.token.ANUx@gmail.com" style="color:gold;">ANUx.token.ANUx@gmail.com</a>
+        </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 512 512">
+            <path fill="gold" d="M462.6 62.7H384l-87.6 122.3L206.6 62.7H49.4l173.8 194.8L45.1 449.3h79.9l96.3-133.8 100.3 133.8h157.3L305.1 240.1 462.6 62.7z"/>
+          </svg>
+          <a href="https://twitter.com/ANUx_token" target="_blank" style="color:gold;">@ANUx_token</a>
+        </p>
+        <p><i class="fab fa-instagram"></i> 
+          <a href="https://instagram.com/ANUx_Token" target="_blank" style="color:gold;">@ANUx_Token</a>
+        </p>
+        <p><i class="fab fa-discord"></i> 
+          <a href="https://discord.com/invite/anux" target="_blank" style="color:gold;">.anux.</a>
+        </p>
+      </div>`
+    };
+
+    function showTab(tab) {
+      document.getElementById('tabContent').innerHTML = tabs[tab];
+    }
+
+    function switchLanguage(langFile) {
+      window.location.href = langFile;
+    }
+
+    window.onload = () => showTab('about');
+  </script>
+</body>
+</html>

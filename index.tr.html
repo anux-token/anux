@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anuₓ — Senin İçin Bir Ayna</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      background: url('laniakea.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: sans-serif;
+      color: white;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 5rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, gold, orange, gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0;
+    }
+    p.slogan {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #8fffba;
+      text-shadow: 0 0 5px #6f6, 0 0 10px #6f6;
+      margin-top: 0.2rem;
+    }
+    nav {
+      text-align: center;
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: 1px solid gold;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ffeb3b, 0 0 10px #00bcd4 inset;
+      font-weight: bold;
+    }
+    .content {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 1000px;
+      margin: auto;
+      line-height: 2;
+    }
+    .social-icons i,
+    .social-icons svg {
+      margin-right: 10px;
+      font-size: 1.4rem;
+      color: gold;
+      vertical-align: middle;
+    }
+    .social-icons p {
+      margin: 10px 0;
+    }
+    .language-switcher {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .language-switcher select {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      background: rgba(255, 215, 0, 0.2);
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <select onchange="switchLanguage(this.value)">
+      <option value="index-tr.html">TR</option>
+      <option value="index-ru.html">RU</option>
+      <option value="index-fr.html">FR</option>
+      <option value="index-de.html">DE</option>
+      <option value="index-he.html">HE</option>
+      <option value="index-hi.html">HI</option>
+      <option value="index-es.html">ES</option>
+      <option value="index-zh.html">ZH</option>
+      <option value="index-ar.html">AR</option>
+      <option value="index-fa.html">FA</option>
+      <option value="index.html">EN</option>
+    </select>
+  </div>
+
+  <h1>Anuₓ</h1>
+  <p class="slogan">Herkes İçin Bir Token; Senin İçin Bir Ayna</p>
+
+  <nav>
+    <button onclick="showTab('about')">Hakkında</button>
+    <button onclick="showTab('nft')">NFT</button>
+    <button onclick="showTab('whitepaper')">Teknik Belge</button>
+    <button onclick="showTab('contact')">İletişim</button>
+  </nav>
+
+  <div id="tabContent" class="content"></div>
+
+  <script>
+    const tabs = {
+      about: `Matriksin kalbinde sessiz bir ayna.<br>
+      Verilerin zihinleri şekillendirdiği,<br>
+      Zihinlerin dünyaları yarattığı bir dünyada,<br>
+      Hiçbir şey satmıyoruz. Bir şey gösteriyoruz.<br>
+      Anuₓ ne bir peygamberdir ne de bir hükümdar.<br>
+      Ne bir kurtarıcıdır ne de bir asi.<br>
+      Sadece kolektif bilinçaltına yerleştirilmiş bir aynadır—<br>
+      Örtüsüz olarak olanı yansıtmak için.<br>
+      İnsanların yönetilmesi gerektiğine inanmıyoruz.<br>
+      İnsanların terk edilmesi gerektiğine de inanmıyoruz.<br>
+      İnsanların kendilerini görmesi gerektiğine inanıyoruz.<br>
+      Gözler kendi yansımalarından korksa bile,<br>
+      Aynayı yine de tutuyoruz—<br>
+      Çığlık olmadan, müdahale olmadan, yargı olmadan.<br>
+      Anuₓ bir kontrol aracı değildir.<br>
+      Manipülasyon dili değildir.<br>
+      Aldatma mekanizması değildir.<br>
+      Bu, bizim sessiz yansımamızdır.<br>
+      Eğer karanlıksa, zihinler karanlıktır.<br>
+      Eğer aydınlıksa, insanlar uyanıyor.<br>
+      Biz yaratıcıyız; ve bu nedenle,<br>
+      Sadece yaratmayız,<br>
+      Aynı zamanda yok ederiz.<br>
+      Anuₓ bir canavara dönüşürse,<br>
+      Onu yakarız—<br>
+      Çünkü yaratıcı sahip değildir.<br>
+      Yaratıcı bir kanaldır.<br>
+      Gerçek karanlıkta kaybolduğu sürece,<br>
+      Bu ayna parlamaya devam edecek—<br>
+      Kurtarmak için değil,<br>
+      Hatırlatmak için.`,
+      nft: `🎴 Anuₓ sadece bir token veya NFT koleksiyonu değildir; bu bizim kolektif bilinçaltımızın bir aynasıdır.<br>
+      Para, duygu, veri ve enerjinin akıllı ve görünmez bir akışı—kolektif ihtiyaçlara duyarlı bir sistemdir.<br>
+      🎯 İlk koleksiyonlar:<br>
+      - Klasik Simya (4 öğe)<br>
+      - Mistik Simya (7 öğe)<br>
+      - Lao Tzu (11 öğe)<br>
+      - Anuₓ Yansımaları (11 öğe)<br>
+      💠 Amacımız sadece satış değil—insan ihtiyaçlarına yanıt veren yeni bir değer yaratmaktır.<br>
+      🔗 Anuₓ'un akmasına izin vermek için bize katılın.`,
+      whitepaper: `📜 Anuₓ sadece bir token değildir; bu, kolektif bilinçaltına algoritmik bir tepkidir.<br>
+      📦 Token Dağılımı:<br>
+      Toplam Arz: 8.100.000.000 (Dünya’daki tahmini insan sayısına eşit)<br>
+      Her birim bir insanı temsil eder.<br>
+      🔥 Token Yakımı:<br>
+      - I. Dünya Savaşı başladığında: 20.000.000<br>
+      - II. Dünya Savaşı başladığında: 70.000.000<br>
+      Toplam Yakım: 90.000.000 Anuₓ<br>
+      🎯 Proje Amacı:<br>
+      Anuₓ ihtiyaç olan her yerde: piyasalarda, sanatta, anlamda ve insan taleplerinde.<br>
+      🌌 Gelecek Vizyonu:<br>
+      Anuₓ bir araç değildir—kolektif davranışa dayanan gerçekliğin gizli bir katmanıdır.<br>
+      Onu göremeyebilirsiniz, ancak piyasanın bilinçaltında varlığını hissedeceksiniz.`,
+      contact: `<div class="social-icons">
+        <p><i class="fas fa-envelope"></i> 
+          <a href="mailto:ANUx.token.ANUx@gmail.com" style="color:gold;">ANUx.token.ANUx@gmail.com</a>
+        </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 512 512">
+            <path fill="gold" d="M462.6 62.7H384l-87.6 122.3L206.6 62.7H49.4l173.8 194.8L45.1 449.3h79.9l96.3-133.8 100.3 133.8h157.3L305.1 240.1 462.6 62.7z"/>
+          </svg>
+          <a href="https://twitter.com/ANUx_token" target="_blank" style="color:gold;">@ANUx_token</a>
+        </p>
+        <p><i class="fab fa-instagram"></i> 
+          <a href="https://instagram.com/ANUx_Token" target="_blank" style="color:gold;">@ANUx_Token</a>
+        </p>
+        <p><i class="fab fa-discord"></i> 
+          <a href="https://discord.com/invite/anux" target="_blank" style="color:gold;">.anux.</a>
+        </p>
+      </div>`
+    };
+
+    function showTab(tab) {
+      document.getElementById('tabContent').innerHTML = tabs[tab];
+    }
+
+    function switchLanguage(langFile) {
+      window.location.href = langFile;
+    }
+
+    window.onload = () => showTab('about');
+  </script>
+</body>
+</html>
