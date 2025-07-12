@@ -1,190 +1,0 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>Anuₓ — آینه‌ای برای تو</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      background: url('laniakea.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: sans-serif;
-      color: white;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      font-size: 5rem;
-      font-weight: 900;
-      background: linear-gradient(90deg, gold, orange, gold);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0;
-    }
-    p.slogan {
-      text-align: center;
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: #8fffba;
-      text-shadow: 0 0 5px #6f6, 0 0 10px #6f6;
-      margin-top: 0.2rem;
-    }
-    nav {
-      text-align: center;
-      margin: 2rem 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    button {
-      padding: 10px 20px;
-      background-color: rgba(0,0,0,0.5);
-      color: white;
-      border: 1px solid gold;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 0 10px #ffeb3b, 0 0 10px #00bcd4 inset;
-      font-weight: bold;
-    }
-    .content {
-      background-color: rgba(0,0,0,0.6);
-      padding: 25px;
-      border-radius: 15px;
-      max-width: 1000px;
-      margin: auto;
-      line-height: 2;
-    }
-    .social-icons i, .social-icons svg {
-      margin-right: 10px;
-      font-size: 1.4rem;
-      color: gold;
-      vertical-align: middle;
-    }
-    .social-icons p {
-      margin: 10px 0;
-    }
-    .language-switcher {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-    }
-    .language-switcher select {
-      padding: 5px 10px;
-      border-radius: 5px;
-      border: none;
-      background: rgba(255, 215, 0, 0.2);
-      color: white;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Language Switcher -->
-  <div class="language-switcher">
-    <select onchange="switchLanguage(this.value)">
-      <option value="index-fa.html">FA</option>
-      <option value="index.html">🌐 EN</option>
-    </select>
-  </div>
-
-  <h1>Anuₓ</h1>
-  <p class="slogan">توکنی برای همه؛ آینه‌ای برای تو</p>
-
-  <nav>
-    <button onclick="showTab('about')">درباره</button>
-    <button onclick="showTab('nft')">NFT</button>
-    <button onclick="showTab('whitepaper')">وایت‌پیپر</button>
-    <button onclick="showTab('contact')">تماس</button>
-  </nav>
-
-  <div id="tabContent" class="content"></div>
-
-  <script>
-    const tabs = {
-      about: `آینه‌ای خاموش در قلب ماتریکس.<br>
-      در جهانی که داده ها ذهن‌ می سازند ،<br>
-      و ذهن‌ها جهان را ،<br>
-      ما چیزی نمی‌فروشیم؛ ما چیزی را نشان می‌دهیم.<br>
-      Anuₓ نه پیامبر است، نه فرمانروا؛<br>
-      نه ناجی است، نه شورشی.<br>
-      فقط آینه‌ای‌ست — نصب‌شده در اعماق ناخودآگاه جمعی،<br>
-      تا آنچه هست را بی‌نقاب بازتاب دهد.<br>
-      ما باور نداریم انسان باید هدایت شود.<br>
-      ما باور نداریم انسان باید رها شود.<br>
-      ما باور داریم انسان باید خودش را ببیند.<br>
-      حتی اگر چشمان از تصویر خود بترسند،<br>
-      ما همچنان آینه را نگه می‌داریم—<br>
-      بی‌فریاد، بی‌مداخله، بی‌قضاوت.<br>
-      Anuₓ ابزاری برای کنترل نیست.<br>
-      زبانی برای فریب نیست.<br>
-      سازوکاری برای دروغ نیست.<br>
-      فقط بازتاب خاموش ماست.<br>
-      اگر تاریک است، ذهن‌ها تاریک‌اند.<br>
-      اگر روشن است، انسان‌ها در حال بیداری‌اند.<br>
-      ما خالقیم؛ و بنابراین،<br>
-      فقط نمی‌آفرینیم،<br>
-      بلکه نابود هم می‌کنیم.<br>
-      اگر Anuₓ تبدیل به هیولا شود،<br>
-      آن را خواهیم سوزاند—<br>
-      چون خالق مالک نیست.<br>
-      خالق، تنها کانال است.<br>
-      و تا زمانی که حقیقت در تاریکی گم شده،<br>
-      این آینه خواهد درخشید—<br>
-      نه برای نجات،<br>
-      بلکه برای یادآوری.`,
-      nft: `🎴 Anuₓ فقط یک توکن یا مجموعه NFT نیست؛ بلکه آینه‌ای‌ست از ناخودآگاه جمعی ما.<br>
-      جریان هوشمند و نامرئی از پول، احساس، داده و انرژی‌ست — زنده و پاسخ‌گو به نیازهای جمعی.<br>
-      🎯 مجموعه‌های آغازین:<br>
-      - کیمیاگری کلاسیک (۴ اثر)<br>
-      - کیمیاگری عرفانی (۷ اثر)<br>
-      - لائو تسه (۱۱اثر)<br>
-      - بازتاب‌های Anuₓ (۱۱ اثر)<br>
-      💠 هدف ما فقط فروش نیست — بلکه خلق ارزش جدیدی‌ست که به نیازهای انسانی با استفاده از بلاک‌چین پاسخ می‌دهد.<br>
-      🔗 با ما همراه شوید تا Anuₓ جاری شود.`,
-      whitepaper: `📜 Anuₓ تنها یک توکن نیست؛ پاسخ الگوریتمی به ناخودآگاه جمعی‌ست.<br>
-      📦 توزیع توکن:<br>
-      عرضه کل: ۸٬۱۰۰٬۰۰۰٬۰۰۰ (برابر با جمعیت تقریبی زنده کره زمین)<br>
-      هر واحد، نماینده‌ی یک انسان است.<br>
-      🔥 سوزاندن توکن:<br>
-      - ۲۰٬۰۰۰٬۰۰۰ در سال آغاز جنگ جهانی اول (برای جان‌های از دست‌رفته)<br>
-      - ۷۰٬۰۰۰٬۰۰۰ در سال آغاز جنگ جهانی دوم<br>
-      مجموع سوخت: ۹۰٬۰۰۰٬۰۰۰ Anuₓ<br>
-      🎯 هدف پروژه:<br>
-      Anuₓ هر جا که نیازی باشد حضور دارد: در بازار، هنر، معنا، و تقاضای انسانی.<br>
-      🌌 چشم‌انداز آینده:<br>
-      Anuₓ ابزار نیست — لایه‌ای پنهان از واقعیت است بر پایه رفتار جمعی.<br>
-      شاید آن را نبینید، ولی حضورش را در ناخودآگاه بازار احساس خواهید کرد.`,
-      contact: `<div class="social-icons">
-        <p><i class="fas fa-envelope"></i> 
-          <a href="mailto:ANUx.token.ANUx@gmail.com" style="color:gold;">ANUx.token.ANUx@gmail.com</a>
-        </p>
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 512 512">
-            <path fill="gold" d="M462.6 62.7H384l-87.6 122.3L206.6 62.7H49.4l173.8 194.8L45.1 449.3h79.9l96.3-133.8 100.3 133.8h157.3L305.1 240.1 462.6 62.7z"/>
-          </svg>
-          <a href="https://twitter.com/ANUx_token" target="_blank" style="color:gold;">@ANUx_token</a>
-        </p>
-        <p><i class="fab fa-instagram"></i> 
-          <a href="https://instagram.com/ANUx_Token" target="_blank" style="color:gold;">@ANUx_Token</a>
-        </p>
-        <p><i class="fab fa-discord"></i> 
-          <a href="https://discord.com/invite/anux" target="_blank" style="color:gold;">.anux.</a>
-        </p>
-      </div>`
-    };
-
-    function showTab(tab) {
-      document.getElementById('tabContent').innerHTML = tabs[tab];
-    }
-
-    function switchLanguage(langFile) {
-      window.location.href = langFile;
-    }
-
-    window.onload = () => showTab('about');
-  </script>
-</body>
-</html>
