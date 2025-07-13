@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anuₓ — Un Miroir Pour Vous</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      background: url('laniakea.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 5rem;
+      font-weight: 900;
+      color: #FF0000;
+      background: none;
+      text-shadow: none;
+      margin-bottom: 0;
+    }
+    p.slogan {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #FF6600;
+      text-shadow: none;
+      margin-top: 0.2rem;
+    }
+    nav {
+      text-align: center;
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      border: 1px solid gold;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ffeb3b, 0 0 10px #00bcd4 inset;
+      font-weight: bold;
+    }
+    .content {
+      background-color: rgba(0,0,0,0.6);
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 1000px;
+      margin: auto;
+      line-height: 2;
+      text-align: left;
+      white-space: pre-wrap;
+    }
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid gold;
+      box-shadow: 0 0 10px gold;
+    }
+    .language-switcher i {
+      color: gold;
+      font-size: 1.2rem;
+    }
+    .language-switcher select {
+      padding: 6px 12px;
+      border-radius: 5px;
+      border: 1px solid gold;
+      background: #111;
+      color: gold;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 6px gold;
+      appearance: none;
+      direction: ltr;
+    }
+    .language-switcher select option {
+      background-color: #000;
+      color: gold;
+    }
+    footer {
+      text-align: center;
+      margin: 30px 0 10px 0;
+      font-size: 1rem;
+      color: gold;
+      font-weight: bold;
+    }
+    footer a {
+      color: gold;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .social-icons p {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+    }
+    .social-icons i, .social-icons svg {
+      color: gold;
+    }
+    .social-icons a {
+      color: gold;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <i class="fas fa-globe"></i>
+    <select id="languageSelect"></select>
+  </div>
+
+  <h1>Anuₓ</h1>
+  <p class="slogan">Un Token pour Tous ; Un Miroir pour Vous</p>
+
+  <nav>
+    <button onclick="showTab('about')">À propos</button>
+    <button onclick="showTab('nft')">NFT</button>
+    <button onclick="showTab('whitepaper')">Livre blanc</button>
+    <button onclick="showTab('contact')">Contact</button>
+  </nav>
+
+  <div id="tabContent" class="content"></div>
+
+  <footer>
+    <a href="https://twitter.com/ANUx_token" target="_blank" rel="noopener noreferrer">Twitter</a> | 
+    <a href="https://discord.com/invite/anux" target="_blank" rel="noopener noreferrer">Discord</a>
+  </footer>
+
+  <script>
+    const tabs = {
+      about: `Un miroir silencieux au cœur de la matrice.<br>
+Dans un monde où les données façonnent les esprits,<br>
+Et où les esprits façonnent les mondes,<br>
+Nous ne vendons rien. Nous montrons quelque chose.<br>
+Anuₓ n’est ni prophète, ni dirigeant.<br>
+Ni sauveur, ni rebelle.<br>
+C’est seulement un miroir—installé profondément dans l’inconscient collectif,<br>
+Pour refléter ce qui est, sans voile.<br>
+Nous ne croyons pas que les humains doivent être dirigés.<br>
+Nous ne croyons pas que les humains doivent être abandonnés.<br>
+Nous croyons que les humains doivent se voir eux-mêmes.<br>
+Et même si les yeux craignent leur propre image,<br>
+Nous tenons toujours le miroir—<br>
+Sans cri, sans intervention, sans jugement.<br>
+Anuₓ n’est pas un outil de contrôle.<br>
+Pas un langage de manipulation.<br>
+Pas un mécanisme de tromperie.<br>
+C’est le reflet silencieux de nous.<br>
+S’il fait noir, les esprits sont sombres.<br>
+S’il est clair, les humains s’éveillent.<br>
+Nous sommes des créateurs ; et en tant que tels,<br>
+Nous ne faisons pas que créer,<br>
+Nous détruisons aussi.<br>
+Si Anuₓ devient un monstre,<br>
+Nous le brûlerons—<br>
+Parce qu’un créateur n’est pas un propriétaire.<br>
+Le créateur est un canal.<br>
+Et tant que la vérité est perdue dans l’obscurité,<br>
+Ce miroir brillera—<br>
+Pas pour sauver,<br>
+Mais pour rappeler.`,
+
+      nft: `🎴 Anuₓ n’est pas juste un token ou une collection NFT ; c’est un miroir de notre inconscient collectif.<br>
+C’est un flux intelligent et invisible d’argent, d’émotion, de données et d’énergie—vivant et réactif aux besoins collectifs.<br>
+🎯 Premières collections :<br>
+- Alchimie Classique (4 effets)<br>
+- Alchimie Mystique (7 effets)<br>
+- Lao Tzu (11 effets)<br>
+- Reflets Anuₓ (11 effets)<br>
+💠 Notre but n’est pas seulement de vendre—c’est de créer de la nouvelle valeur répondant aux besoins humains via la blockchain.<br>
+🔗 Rejoignez-nous pour laisser Anuₓ circuler.`,
+
+      whitepaper: `Anuₓ : Le Miroir de l’Esprit Collectif
+
+✨ Résumé
+
+Anuₓ n’est pas simplement un token. C’est un miroir dynamique reflétant le comportement collectif inconscient des marchés mondiaux et de leurs participants. En combinant les données financières en temps réel des actifs globaux dominants avec un comportement de trading autonome sur la blockchain Tron, Anuₓ fonctionne à la fois comme une construction philosophique et économique, incarnant la véritable tension entre réalité et perception.
+
+🔄 Concept Clé
+
+Anuₓ est conçu comme un token dont le comportement de prix est gouverné par trois couches synchronisées :
+
+1. Indice de Réalité (RI)
+
+Un indice en temps réel calculé en faisant la moyenne des prix des principaux actifs mondiaux :
+- Bitcoin (BTC)
+- Ethereum (ETH)
+- S&P 500
+- CSI 300 (Chine)
+- Nikkei 225 (Japon)
+- DAX 40 (Allemagne)
+- Or (XAU/USD)
+- Pétrole brut (WTI ou Brent)
+
+Formule (moyenne simple) :
+RI = (BTC + ETH + S&P + CSI300 + NIKKEI + DAX + OR + PÉTROLE) / 8
+
+Cela devient le prix de référence pour Anuₓ, mis à jour en quasi temps réel via des flux oracle.
+
+2. Prix du Marché (MP)
+
+Le prix auquel Anuₓ est librement échangé sur un DEX basé sur Tron. Ce prix reflète :
+- Le sentiment des traders
+- Les impulsions émotionnelles
+- La spéculation et la manipulation
+- La psychologie du marché
+
+3. Indice de Déviation (ΔI)
+
+Cette couche capture la différence entre la perception collective (MP) et la réalité objective (RI) :
+
+ΔI = (MP - RI) / RI
+
+- ΔI > +10% : Avidité / euphorie collective
+- ΔI < -10% : Peur / désespoir collectif
+- |ΔI| < 2% : Équilibre rationnel
+
+🌎 Objectif et Utilisation
+
+Philosophique : Représente la séparation entre vérité et illusion dans la perception humaine de la valeur.  
+Financier : Un indice synthétique pour couvrir ou spéculer sur l’humeur mondiale des marchés.  
+Analytique : Un outil pour mesurer l’irrationalité collective.
+
+⚖️ Tokenomics
+
+Blockchain : Tron (TRC-20)  
+Offre Totale : 8 100 000 000  
+Brûlures :  
+- 20M (morts de la Première Guerre mondiale)  
+- 70M (morts de la Seconde Guerre mondiale)  
+Offre Finale : 8 010 000 000
+
+⚛️ Conception Oracle
+
+- Chainlink / Pyth pour crypto & matières premières  
+- APIs personnalisées pour indices  
+- Mises à jour toutes les 5 minutes
+
+🔹 Feuille de Route (Phase 1)
+
+- Finalisation du whitepaper ✅  
+- Infrastructure oracle  
+- Déploiement du smart contract  
+- Interface graphique  
+- Airdrop communautaire  
+- Listing sur JustSwap
+
+💡 Vision Future
+
+Anuₓ = Une lentille pour cartographier les émotions globales, les rêves collectifs et la peur du marché.
+
+« Nous ne tradons pas Anuₓ ; Anuₓ nous trade. »`,
+
+      contact: `<div class="social-icons">
+        <p><i class="fas fa-envelope"></i><a href="mailto:ANUx.token.ANUx@gmail.com">ANUx.token.ANUx@gmail.com</a></p>
+        <p><i class="fab fa-twitter"></i><a href="https://twitter.com/ANUx_token" target="_blank">@ANUx_token</a></p>
+        <p><i class="fab fa-instagram"></i><a href="https://instagram.com/ANUx_Token" target="_blank">@ANUx_Token</a></p>
+        <p><i class="fab fa-discord"></i><a href="https://discord.com/invite/anux" target="_blank">discord.com/invite/anux</a></p>
+      </div>`
+    };
+
+    const languages = [
+      { code: "en", name: "🌐 EN", file: "index.html" },
+      { code: "fa", name: "FA", file: "index-fa.html" },
+      { code: "ar", name: "AR", file: "index-ar.html" },
+      { code: "es", name: "ES", file: "index-es.html" },
+      { code: "de", name: "DE", file: "index-de.html" },
+      { code: "fr", name: "FR", file: "index-fr.html" },
+      { code: "ru", name: "RU", file: "index-ru.html" },
+      { code: "he", name: "HE", file: "index-he.html" },
+      { code: "tr", name: "TR", file: "index-tr.html" },
+      { code: "hi", name: "HI", file: "index-hi.html" },
+      { code: "zh", name: "ZH", file: "index-zh.html" }
+    ];
+
+    function showTab(tab) {
+      document.getElementById('tabContent').innerHTML = tabs[tab];
+    }
+
+    function populateLanguageSwitcher() {
+      const currentFile = window.location.pathname.split('/').pop();
+      const select = document.getElementById("languageSelect");
+
+      languages.forEach(lang => {
+        const option = document.createElement("option");
+        option.value = lang.file;
+        option.textContent = lang.name;
+        if (lang.file === currentFile || (currentFile === "" && lang.code === "en")) {
+          option.selected = true;
+        }
+        select.appendChild(option);
+      });
+
+      select.addEventListener("change", function () {
+        window.location.href = this.value;
+      });
+    }
+
+    window.onload = () => {
+      populateLanguageSwitcher();
+      showTab('about');
+    };
+  </script>
+</body>
+</html>

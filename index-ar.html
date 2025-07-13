@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anux — مرآة لك</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- تحميل خط كايرو من Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      background: url('laniakea.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Cairo', Tahoma, sans-serif;
+      color: white;
+      padding: 20px;
+      direction: rtl;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 5rem;
+      font-weight: 900;
+      color: #FF0000;
+      background: none;
+      text-shadow: none;
+      margin-bottom: 0;
+      font-family: 'Cairo', Tahoma, sans-serif;
+      direction: rtl;
+    }
+
+    p.slogan {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #FF6600;
+      text-shadow: none;
+      margin-top: 0.2rem;
+      font-family: 'Cairo', Tahoma, sans-serif;
+      direction: rtl;
+    }
+
+    nav {
+      text-align: center;
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      direction: rtl;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      border: 1px solid gold;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ffeb3b, 0 0 10px #00bcd4 inset;
+      font-weight: bold;
+      font-family: 'Cairo', Tahoma, sans-serif;
+    }
+
+    .content {
+      background-color: rgba(0,0,0,0.6);
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 1000px;
+      margin: auto;
+      line-height: 2;
+      text-align: justify;
+      white-space: pre-wrap;
+      direction: rtl;
+      font-family: 'Cairo', Tahoma, sans-serif;
+    }
+
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid gold;
+      box-shadow: 0 0 10px gold;
+      direction: ltr;
+    }
+
+    .language-switcher i {
+      color: gold;
+      font-size: 1.2rem;
+    }
+
+    .language-switcher select {
+      padding: 6px 12px;
+      border-radius: 5px;
+      border: 1px solid gold;
+      background: #111;
+      color: gold;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 6px gold;
+      appearance: none;
+      direction: ltr;
+    }
+
+    .language-switcher select option {
+      background-color: #000;
+      color: gold;
+    }
+
+    footer {
+      text-align: center;
+      margin: 30px 0 10px 0;
+      font-size: 1rem;
+      color: gold;
+      font-weight: bold;
+      font-family: 'Cairo', Tahoma, sans-serif;
+      direction: rtl;
+    }
+
+    footer a {
+      color: gold;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .social-icons p {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+      direction: rtl;
+      font-family: 'Cairo', Tahoma, sans-serif;
+    }
+
+    .social-icons i, .social-icons svg {
+      color: gold;
+    }
+
+    .social-icons a {
+      color: gold;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- تبديل اللغة -->
+  <div class="language-switcher">
+    <i class="fas fa-globe"></i>
+    <select id="languageSelect"></select>
+  </div>
+
+  <h1>Anux</h1>
+  <p class="slogan">رمز للجميع؛ مرآة لك</p>
+
+  <nav>
+    <button onclick="showTab('about')">حول</button>
+    <button onclick="showTab('nft')">رموز غير قابلة للاستبدال</button>
+    <button onclick="showTab('whitepaper')">الورقة البيضاء</button>
+    <button onclick="showTab('contact')">اتصل بنا</button>
+  </nav>
+
+  <div id="tabContent" class="content"></div>
+
+  <footer>
+    <a href="https://twitter.com/ANUx_token" target="_blank" rel="noopener noreferrer">تويتر</a> | 
+    <a href="https://discord.com/invite/anux" target="_blank" rel="noopener noreferrer">ديسكورد</a>
+  </footer>
+
+  <script>
+    const tabs = {
+      about: `مرآة صامتة في قلب المصفوفة.<br>
+في عالم تشكل فيه البيانات العقول،<br>
+وتشكل العقول العوالم،<br>
+نحن لا نبيع شيئًا. نحن نظهر شيئًا.<br>
+Anux ليس نبيًا، ولا حاكمًا.<br>
+لا منقذ، ولا متمرد.<br>
+إنها مجرد مرآة—موضوعة عميقًا في اللاوعي الجمعي،<br>
+لتعكس ما هو موجود، بلا حجاب.<br>
+نحن لا نؤمن بأنه يجب أن يقاد البشر.<br>
+لا نؤمن بأنه يجب التخلي عن البشر.<br>
+نؤمن بأن البشر يجب أن يروا أنفسهم.<br>
+وحتى إذا خافت العيون من صورتها،<br>
+نظل نمسك المرآة—<br>
+بدون صراخ، بدون تدخل، بدون حكم.<br>
+Anux ليست أداة للتحكم.<br>
+ليست لغة للتلاعب.<br>
+ليست آلية للخداع.<br>
+إنها الانعكاس الصامت لنا.<br>
+إذا كان الظلام، فالعقول مظلمة.<br>
+إذا كان النور، فالناس مستيقظون.<br>
+نحن مبدعون؛ ولهذا السبب،<br>
+نحن لا نخلق فقط،<br>
+بل ندمر أيضًا.<br>
+إذا أصبح Anux وحشًا،<br>
+سنحرقه—<br>
+لأن المبدع ليس مالكًا.<br>
+المبدع هو قناة.<br>
+ومادام الحقيقة ضائعة في الظلام،<br>
+ستظل هذه المرآة تتلألأ—<br>
+ليس للإنقاذ،<br>
+ولكن للتذكير.`,
+
+      nft: `🎴 Anux ليس مجرد رمز أو مجموعة رموز غير قابلة للاستبدال؛ إنه مرآة لللاوعي الجمعي لدينا.<br>
+إنه تدفق ذكي وغير مرئي للنقود، والمشاعر، والبيانات، والطاقة—حي ومستجيب لاحتياجات الجماعة.<br>
+🎯 المجموعات الأولى:<br>
+- الكيمياء القديمة (4 تأثيرات)<br>
+- الكيمياء الصوفية (7 تأثيرات)<br>
+- لاو تزو (11 تأثيرًا)<br>
+- انعكاسات Anux (11 تأثيرًا)<br>
+💠 هدفنا ليس البيع فقط—بل خلق قيمة جديدة تلبي الاحتياجات البشرية باستخدام البلوكشين.<br>
+🔗 انضم إلينا لتدفق Anux.`,
+
+      whitepaper: `Anux: مرآة العقل الجمعي
+
+✨ الملخص
+
+Anux ليس مجرد رمز. إنه مرآة ديناميكية تعكس السلوك اللاواعي الجمعي للأسواق العالمية والمشاركين فيها. من خلال دمج بيانات مالية في الوقت الحقيقي من الأصول العالمية السائدة مع سلوك تداول ذاتي على بلوكشين ترون، يعمل Anux ككيان فلسفي واقتصادي يجسد التوتر الحقيقي بين الواقع والإدراك.
+
+🔄 المفهوم الأساسي
+
+تم تصميم Anux كر رمز يتم التحكم بسلوك سعره من خلال ثلاث طبقات متزامنة:
+
+1. مؤشر الواقع (RI)
+
+مؤشر في الوقت الحقيقي يُحسب بأخذ متوسط أسعار الأصول العالمية الرئيسية:
+- بيتكوين (BTC)
+- إيثريوم (ETH)
+- S&P 500
+- CSI 300 (الصين)
+- نيكاي 225 (اليابان)
+- DAX 40 (ألمانيا)
+- الذهب (XAU/USD)
+- النفط الخام (WTI أو برنت)
+
+الصيغة (المتوسط البسيط):  
+RI = (BTC + ETH + S&P + CSI300 + NIKKEI + DAX + GOLD + OIL) / 8
+
+هذا يصبح السعر المرجعي لـ Anux، يتم تحديثه في الوقت الحقيقي تقريبًا عبر تغذية الأوراكل.
+
+2. سعر السوق (MP)
+
+السعر الذي يتم فيه تداول Anux بحرية على منصة تداول لامركزية قائمة على ترون. هذا السعر يعكس:
+- مشاعر المتداولين
+- الدوافع العاطفية
+- المضاربة والتلاعب
+- سيكولوجية السوق
+
+3. مؤشر الانحراف (ΔI)
+
+تلتقط هذه الطبقة الفرق بين الإدراك الجمعي (MP) والواقع الموضوعي (RI):
+
+ΔI = (MP - RI) / RI
+
+- ΔI > +10٪: جشع جماعي / نشوة  
+- ΔI < -10٪: خوف جماعي / يأس  
+- |ΔI| < 2٪: توازن عقلاني  
+
+🌎 الهدف والاستخدام
+
+فلسفي: يمثل الفصل بين الحقيقة والوهم في إدراك القيمة البشرية  
+مالي: مؤشر اصطناعي للتحوط أو المضاربة على المزاج العالمي للأسواق  
+تحليلي: أداة للمحللين والمتداولين والباحثين لقياس اللاعقلانية الجماعية
+
+⚖️ التوكنوميكس
+
+البلوكشين: ترون (TRC-20)  
+إجمالي العرض: 8,100,000,000  
+حرق الرموز:  
+- 20 مليون (وفيات الحرب العالمية الأولى)  
+- 70 مليون (وفيات الحرب العالمية الثانية)  
+العرض النهائي: 8,010,000,000
+
+⚛️ تصميم الأوراكل
+
+- Chainlink / Pyth للعملات والسلع  
+- واجهات برمجة تطبيقات مخصصة للمؤشرات  
+- تحديثات كل 5 دقائق
+
+🔹 خارطة الطريق (المرحلة 1)
+
+- الانتهاء من الورقة البيضاء ✅  
+- تصميم بنية الأوراكل  
+- نشر العقد الذكي  
+- واجهة المستخدم البيانية على الويب  
+- إسقاط جوي للمجتمع  
+- الإدراج على JustSwap
+
+💡 الرؤية المستقبلية
+
+Anux = عدسة لرسم موجات المشاعر العالمية، والأحلام الجماعية، وخوف السوق.
+
+"نحن لا نتداول Anux؛ Anux يتداولنا."`,
+
+      contact: `<div class="social-icons">
+        <p><i class="fas fa-envelope"></i><a href="mailto:ANUx.token.ANUx@gmail.com">ANUx.token.ANUx@gmail.com</a></p>
+        <p><i class="fab fa-twitter"></i><a href="https://twitter.com/ANUx_token" target="_blank">ANUx_token@</a></p>
+        <p><i class="fab fa-instagram"></i><a href="https://instagram.com/ANUx_Token" target="_blank">ANUx_Token@</a></p>
+        <p><i class="fab fa-discord"></i><a href="https://discord.com/invite/anux" target="_blank">discord.com/invite/anux</a></p>
+      </div>`
+    };
+
+    const languages = [
+      { code: "en", name: "🌐 EN", file: "index.html" },
+      { code: "fa", name: "FA", file: "index-fa.html" },
+      { code: "ar", name: "AR", file: "index-ar.html" },
+      { code: "es", name: "ES", file: "index-es.html" },
+      { code: "de", name: "DE", file: "index-de.html" },
+      { code: "fr", name: "FR", file: "index-fr.html" },
+      { code: "ru", name: "RU", file: "index-ru.html" },
+      { code: "he", name: "HE", file: "index-he.html" },
+      { code: "tr", name: "TR", file: "index-tr.html" },
+      { code: "hi", name: "HI", file: "index-hi.html" },
+      { code: "zh", name: "ZH", file: "index-zh.html" }
+    ];
+
+    function showTab(tab) {
+      document.getElementById('tabContent').innerHTML = tabs[tab];
+    }
+
+    function populateLanguageSwitcher() {
+      const currentFile = window.location.pathname.split('/').pop();
+      const select = document.getElementById("languageSelect");
+
+      languages.forEach(lang => {
+        const option = document.createElement("option");
+        option.value = lang.file;
+        option.textContent = lang.name;
+        if (lang.file === currentFile || (currentFile === "" && lang.code === "ar")) {
+          option.selected = true;
+        }
+        select.appendChild(option);
+      });
+
+      select.addEventListener("change", function () {
+        window.location.href = this.value;
+      });
+    }
+
+    window.onload = () => {
+      populateLanguageSwitcher();
+      showTab('about');
+    };
+  </script>
+</body>
+</html>
