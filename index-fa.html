@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="logo.png" type="image/png">
+  <title>Anux — آینه‌ای برای تو</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn-font@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  <style>
+    body {
+      margin: 0;
+      background: url('laniakea.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      color: white;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    header img {
+      height: 200px;
+    }
+
+    p.slogan {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #FF9900;
+      margin-top: 0.5rem;
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      text-align: center;
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      border: 1px solid gold;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ffeb3b, 0 0 10px #00bcd4 inset;
+      font-weight: bold;
+    }
+
+    .content {
+      background-color: rgba(0,0,0,0.6);
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 1000px;
+      margin: auto;
+      line-height: 2.2;
+      text-align: justify;
+      white-space: pre-wrap;
+    }
+
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid gold;
+      box-shadow: 0 0 10px gold;
+      direction: ltr;
+    }
+
+    .language-switcher i {
+      color: gold;
+      font-size: 1.2rem;
+    }
+
+    .language-switcher select {
+      padding: 6px 12px;
+      border-radius: 5px;
+      border: 1px solid gold;
+      background: #111;
+      color: gold;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 6px gold;
+      appearance: none;
+    }
+
+    footer {
+      text-align: center;
+      margin: 30px 0 10px 0;
+      font-size: 1rem;
+      color: gold;
+      font-weight: bold;
+    }
+
+    footer a {
+      color: gold;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: flex-start;
+    }
+
+    .social-icons p {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+    }
+
+    .social-icons i {
+      color: gold;
+      min-width: 24px;
+      text-align: center;
+    }
+
+    .social-icons a {
+      color: gold;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="language-switcher">
+    <i class="fas fa-globe"></i>
+    <select id="languageSelect"></select>
+  </div>
+
+  <header>
+    <img src="logo.png" alt="Anux Logo">
+    <p class="slogan">توکنی برای همه؛ آینه‌ای برای تو</p>
+  </header>
+
+  <nav>
+    <button onclick="showTab('about')">درباره</button>
+    <button onclick="showTab('nft')">NFT</button>
+    <button onclick="showTab('whitepaper')">وایت‌پیپر</button>
+    <button onclick="showTab('presale')">پیش‌فروش</button>
+    <button onclick="showTab('chart')">چارت قیمت</button>
+    <button onclick="showTab('contact')">تماس</button>
+  </nav>
+
+  <div id="tabContent" class="content"></div>
+
+  <footer>
+    <a href="https://x.com/ANUx_token" target="_blank">شبکه X</a> |
+    <a href="https://discord.gg/yA8mTYWBPz" target="_blank">دیسکورد</a>
+  </footer>
+
+  <script>
+    const tabs = {
+      about: `🎴 آینه‌ای خاموش در قلب ماتریکس
+
+در جهانی که داده‌ها، ذهن می‌سازند
+و ذهن‌ها، جهان را—
+ما چیزی نمی‌فروشیم؛
+ما چیزی را نشان می‌دهیم.
+
+انوکس نه پیامبر است، نه فرمانروا،
+نه ناجی، نه شورشی.
+بلکه تنها یک آینه‌ست—
+آینه‌ای که در عمق ناخودآگاه جمعی نصب شده
+تا آن‌چه هست را، بی‌پرده بازتاب دهد.
+
+ما باور نداریم انسان را باید هدایت کرد.
+ما باور نداریم انسان را باید رها کرد.
+ما باور داریم: انسان باید خود را ببیند.
+
+و اگر چشم‌ها از دیدن خود هراسان باشند،
+ما هنوز هم آینه را نگه‌ می‌داریم—
+بی‌فریاد، بی‌دخالت، بی‌داوری.
+
+انوکس ابزار کنترل نیست.
+زبان دست‌کاری نیست.
+مکانیزم فریب نیست.
+او بازتاب خاموش مجموعه‌ی ماست.
+
+اگر تاریک است، یعنی ذهن‌ها تاریک‌اند.
+اگر روشن شد، یعنی انسان در حال بیداری‌ست.
+
+ما خالقیم.
+و چون خالقیم—
+نه تنها قدرت خلق داریم،
+بلکه شهامت مرگ نیز.
+
+اگر انوکس تبدیل به هیولا شود،
+ما، بی‌تردید،
+خود آن را به آتش می‌کشیم.
+
+چرا که خالق، مالک نیست.
+خالق، کانال است.
+
+و تا زمانی که حقیقت در تاریکی گم شده،
+این آینه خواهد درخشید—
+نه برای نجات،
+بلکه برای یادآوری.`,
+
+      nft: `🎴 Anuₓ، فقط یک توکن یا کالکشن NFT نیست
+
+او یک آینه‌ست... آینه‌ای از ناخودآگاه جمعی ما.
+
+انوکس تلاشی‌ست برای خلق جریانی هوشمند از پول، احساس، داده و انرژی—
+جریانی نامرئی اما زنده، واکنش‌پذیر، و متصل به نیازهای جمعی ما.
+
+ما باور داریم:
+هر انسان، با هر سن، ملیت یا شغلی، می‌تونه بخشی از این جریان باشه.
+
+🎯 اولین کالکشن‌های NFT انوکس به‌زودی عرضه خواهند شد:
+
+کیمیاگری کلاسیک — شامل ۴ اثر  
+کیمیاگری عرفانی — شامل ۷ اثر  
+لائو تزو — شامل ۱۱ اثر  
+بازتاب‌های انوکس — شامل ۱۱ اثر
+
+💠 هدف ما فقط فروش نیست؛
+
+هدف ما خلق ارزش‌های نوین برای پاسخ به هر نیاز انسانی‌ست—
+آن هم با کمک قدرت بلاکچین.
+
+🔗 به ما بپیوندید.
+
+با هم، انوکس را به جریان خواهیم انداخت...`,
+
+      whitepaper: `🧠 Anuₓ: آینه‌ی ذهن جمعی
+
+✨ چکیده
+
+Anuₓ صرفاً یک توکن نیست؛  
+او آینه‌ای پویاست که رفتار ناخودآگاه جمعی بازارهای جهانی را بازتاب می‌دهد.
+
+این پروژه، ترکیبی‌ست از داده‌های مالی بلادرنگ و مکانیزم‌های معاملاتی خودمختار روی بلاکچین ترون—  
+جایی که اقتصاد و فلسفه به هم می‌رسند.
+
+🔄 سه‌لایه‌ی مفهومی Anuₓ
+
+1. شاخص واقعیت (RI):  
+میانگین قیمت ۱۰ دارایی شاخص جهانی، شامل:
+
+- بیت‌کوین (BTC)  
+- S&P 500  
+- NASDAQ  
+- CSI 300 (چین)  
+- Nikkei 225 (ژاپن)  
+- DAX 40 (آلمان)  
+- FTSE 100 (بریتانیا)  
+- CAC 40 (فرانسه)  
+- طلا (XAU)  
+- Hang Seng (هنگ‌کنگ)
+
+فرمول:  
+RI = میانگین قیمت لحظه‌ای این ۱۰ دارایی
+
+2. قیمت بازار (MP):  
+قیمتی که توکن Anuₓ در DEXها معامله می‌شود، تحت تأثیر:
+
+- احساسات جمعی  
+- روان‌شناسی معامله‌گران  
+- سفته‌بازی و دست‌کاری قیمت
+
+3. شاخص انحراف (ΔI):  
+اختلاف بین واقعیت و ادراک:  
+ΔI = (MP - RI) / RI
+
+- ΔI > +10٪ → طمع جمعی  
+- ΔI < -10٪ → ترس و ناامیدی  
+- |ΔI| < 2٪ → تعادل ذهنی
+
+🌍 کاربردهای Anuₓ
+
+- فلسفی: بازتاب شکاف بین حقیقت و توهم  
+- مالی: ابزار پوشش ریسک یا سفته‌بازی  
+- تحلیلی: مرجعی برای تحلیلگران و پژوهشگران
+
+⚖️ توکنومیکس
+
+- بلاکچین: TRON (TRC-20)  
+- عرضه کل: ۸٬۱۰۰٬۰۰۰٬۰۰۰ توکن  
+- توکن‌سوزی:
+  - ۲۰ میلیون (WWI)  
+  - ۷۰ میلیون (WWII)  
+- عرضه نهایی: ۸٬۰۱۰٬۰۰۰٬۰۰۰
+
+⚛️ اوراکل و داده‌ها
+
+- استفاده از Chainlink / Pyth برای رمزارزها  
+- API سفارشی برای شاخص‌های بورس  
+- بروزرسانی هر ۵ دقیقه
+
+🗺️ نقشه راه (فاز ۱)
+
+- نهایی‌سازی وایت‌پیپر  
+- طراحی اوراکل  
+- استقرار قرارداد هوشمند  
+- رابط کاربری وب / نمودار  
+- ایردراپ جامعه  
+- لیست در JustSwap
+
+💡 چشم‌انداز
+
+Anuₓ = لنزی برای نقشه‌برداری احساسات جهانی، رویاهای جمعی و ترس بازار.  
+"ما Anuₓ را معامله نمی‌کنیم؛ Anuₓ ما را معامله می‌کند."`,
+
+      presale: `🎯 صفحه پیش‌فروش NFT
+
+شما می‌توانید از طریق فرم زیر، علاقه‌مندی خود را برای مشارکت در پیش‌فروش NFTهای انوکس ثبت کنید:
+
+🔗 <a href="https://forms.gle/MGgweSscvYMeG2fc7" target="_blank">فرم ثبت‌نام پیش‌فروش</a>
+
+در حال حاضر حراجی به‌صورت "coming soon" طراحی شده و در زمان مناسب فعال خواهد شد.`,
+
+      chart: `📈 صفحه چارت قیمت Anuₓ
+
+در این صفحه، نمودار قیمت توکن Anuₓ به‌زودی نمایش داده خواهد شد.
+
+درک قیمت Anuₓ مبتنی بر سه لایه‌ی مفهومی است:
+
+1. RI (Real Index): میانگین قیمت ۱۰ دارایی شاخص جهانی  
+2. MP (Market Price): قیمتی که در صرافی‌ها معامله می‌شود  
+3. ΔI (Deviation Index): اختلاف MP و RI که نشان‌دهنده‌ی ترس، طمع یا تعادل ذهن جمعی است
+
+🔄 نمودار در حال لود شدن است... Coming Soon`,
+
+      contact: `<div class="social-icons">
+        <p><i class="fas fa-envelope"></i><a href="mailto:ANUx.token.ANUx@gmail.com">ANUx.token.ANUx@gmail.com</a></p>
+        <p><i class="fab fa-twitter"></i><a href="https://x.com/ANUx_token" target="_blank">@ANUx_token</a></p>
+        <p><i class="fab fa-instagram"></i><a href="https://instagram.com/ANUx_Token" target="_blank">@ANUx_Token</a></p>
+        <p><i class="fab fa-discord"></i><a href="https://discord.gg/yA8mTYWBPz" target="_blank">discord.gg/yA8mTYWBPz</a></p>
+      </div>`
+    };
+
+    const languages = [
+      { code: "en", name: "🌐 EN", file: "index.html" },
+      { code: "fa", name: "FA", file: "index-fa.html" },
+      { code: "ar", name: "AR", file: "index-ar.html" },
+      { code: "es", name: "ES", file: "index-es.html" },
+      { code: "de", name: "DE", file: "index-de.html" },
+      { code: "fr", name: "FR", file: "index-fr.html" },
+      { code: "ru", name: "RU", file: "index-ru.html" },
+      { code: "he", name: "HE", file: "index-he.html" },
+      { code: "tr", name: "TR", file: "index-tr.html" },
+      { code: "hi", name: "HI", file: "index-hi.html" },
+      { code: "zh", name: "ZH", file: "index-zh.html" }
+    ];
+
+    function showTab(tab) {
+      document.getElementById('tabContent').innerHTML = tabs[tab];
+    }
+
+    function populateLanguageSwitcher() {
+      const currentFile = window.location.pathname.split('/').pop();
+      const select = document.getElementById("languageSelect");
+
+      languages.forEach(lang => {
+        const option = document.createElement("option");
+        option.value = lang.file;
+        option.textContent = lang.name;
+        if (lang.file === currentFile || (currentFile === "" && lang.code === "fa")) {
+          option.selected = true;
+        }
+        select.appendChild(option);
+      });
+
+      select.addEventListener("change", function () {
+        window.location.href = this.value;
+      });
+    }
+
+    window.onload = () => {
+      populateLanguageSwitcher();
+      showTab('about');
+    };
+  </script>
+</body>
+</html>
