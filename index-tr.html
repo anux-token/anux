@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="logo.png" type="image/png">
+  <title>Anuₓ — Senin İçin Bir Ayna</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn-font@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      width: 100%;
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('laniakea.jpg') no-repeat center center fixed;
+      background-size: cover;
+      z-index: -1;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    header {
+      text-align: center;
+    }
+    header img {
+      height: 180px;
+      max-width: 90%;
+    }
+    p.slogan {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #FF9900;
+      margin-top: 0.5rem;
+      letter-spacing: 0.5px;
+    }
+    nav {
+      text-align: center;
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      border: 1px solid gold;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ffeb3b, 0 0 10px #00bcd4 inset;
+      font-weight: bold;
+    }
+    .content {
+      background-color: rgba(0,0,0,0.6);
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 1000px;
+      width: 95%;
+      margin: 0 auto 40px auto;
+      line-height: 2.2;
+      text-align: justify;
+      white-space: pre-wrap;
+      flex: 1 0 auto;
+      box-sizing: border-box;
+      min-height: 60vh;
+    }
+    .language-switcher {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid gold;
+      box-shadow: 0 0 10px gold;
+      direction: ltr;
+    }
+    .language-switcher i {
+      display: none;
+    }
+    .language-switcher select {
+      padding: 6px 12px;
+      border-radius: 5px;
+      border: 1px solid gold;
+      background: #111;
+      color: gold;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 6px gold;
+      appearance: none;
+    }
+    footer {
+      text-align: center;
+      margin: 30px 0 20px 0;
+      font-size: 1rem;
+      color: gold;
+      font-weight: bold;
+    }
+    footer a {
+      color: gold;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    footer::after {
+      content: "\A\A© 2025 Anuₓ Protokolü — Tüm hakları saklıdır.";
+      white-space: pre;
+      display: block;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #FFD700;
+    }
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: flex-start;
+    }
+    .social-icons p {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+    }
+    .social-icons i {
+      color: gold;
+      min-width: 24px;
+      text-align: center;
+    }
+    .social-icons a {
+      color: gold;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      header img {
+        height: 140px;
+      }
+      .language-switcher {
+        flex-direction: row;
+        top: 10px;
+        left: 10px;
+      }
+      body::before {
+        background-attachment: scroll;
+        background-size: cover;
+        background-position: top center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="language-switcher">
+    <select id="languageSelect"></select>
+  </div>
+
+  <main>
+    <header>
+      <img src="logo.png" alt="Anuₓ Logosu">
+      <p class="slogan">Herkes için bir token — Senin için bir ayna</p>
+    </header>
+
+    <nav>
+      <button onclick="showTab('about')">Hakkımızda</button>
+      <button onclick="showTab('nft')">NFT</button>
+      <button onclick="showTab('whitepaper')">Whitepaper</button>
+      <button onclick="showTab('presale')">Ön Satış</button>
+      <button onclick="showTab('chart')">Fiyat Grafiği</button>
+      <button onclick="showTab('contact')">İletişim</button>
+    </nav>
+
+    <div id="tabContent" class="content"></div>
+  </main>
+
+  <footer>
+    <p>
+      <a href="https://x.com/ANUx_token" target="_blank">
+        <i class="fab fa-x-twitter"></i> X Ağı
+      </a>
+      |
+      <a href="https://discord.gg/yA8mTYWBPz" target="_blank">
+        <i class="fab fa-discord"></i> Discord
+      </a>
+    </p>
+  </footer>
+
+  <script src="tabs-tr.js"></script>
+</body>
+</html>
